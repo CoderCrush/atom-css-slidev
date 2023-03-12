@@ -1,409 +1,343 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
-drawings:
-  persist: false
-# page transition
-transition: slide-left
-# use UnoCSS
-css: unocss
----
-
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
 transition: fade-out
 ---
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
+### [UnoCSS](https://uno.antfu.me/) ###
+2021-10
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+- 具有高性能且极具灵活性的即时原子化 CSS 引擎。
+- **UnoCSS** 是一个引擎，而非一款框架，因为它并未提供核心工具类，所有功能可以通过预设和内联配置提供。
+- 没有解析，没有 AST，没有扫描，它是**即时**的（比 Windi CSS 或 Tailwind JIT 快 5 倍）。
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+<br>
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+### [Fower](https://fower.vercel.app) ###
+2020-10
+<br>
 
-<!--
-Here is another comment.
--->
+- Fower 是一个高效开发 UI 的样式工具库，目标是让写 CSS 不再痛苦。Fower 的核心特点是**原子化**(Atomic/utility-first)、**[类型安全](https://fower.vercel.app/zh-cn/docs/typescript)**(Type Safe)、**CSS in JS**，它非常注重开发体验，让用户快速且开心的开发界面。
+- 不依赖任何框架，可与React，Vue，React native，小程序等框架一起使用
 
 ---
 transition: slide-up
 ---
 
-# Navigation
+## 原子化CSS的使用
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+我们将以 `Unocss` 为例，实现一个 [Twitter](https://twitter.com/home) 首页布局效果，在基础上添加更换主题、暗夜模式功能
 
-### Keyboard Shortcuts
+技术栈：`Vite`、 `nuxt` 、`unocss`
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+1、初始化一个nuxt项目
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+```node
+npm init nuxt-app atom-css
+```
 
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
+2、引入`Unocss`
 
-# Code
+```node
+npm i -D @unocss/nuxt
+```
 
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+```js
+// nuxt.config.js
+export default {
+  ...
+  modules: [
+    '@unocss/nuxt',
+  ],
+  ...
 }
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
+---
+transition: slide-up
 ---
 
-# Components
+3、配置unocss
 
-<div grid="~ cols-2 gap-4">
-<div>
+```js
+// unocss.config.js
+import {
+  defineConfig,
+  presetAttributify,
+  presetUno,
+  transformerDirectives,
+  transformerVariantGroup,
+} from 'unocss'
 
-You can use Vue components directly inside your slides.
+export default defineConfig({
+  presets: [ // 预设
+    presetUno(), // unocss预设
+    presetAttributify(), // 支持属性写法
+  ],
+  transformers: [ // 预处理
+    transformerDirectives(), // 可以把css写成js文件并且可以直接获取到css
+    transformerVariantGroup(),
+  ],
+})
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+```
+
+添加`Tailwind CSS IntelliSense`、`unocss`vscode插件
+
+---
+transition: slide-up
+---
+
+4、初始化页面布局
 
 ```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
+// layouts/default.vue
+<template>
+  <div h-full>
+    <main flex w-full mxa max-w-80rem>
+      <!-- 左侧边栏 -->
+      <aside flex justify-end relative>
+        <div sticky top-0 w-20 h-screen flex="~ col">
+          Aside Left
+        </div>
+      </aside>
+      <div w-full min-h-screen border-base>
+        <div min-h="[calc(100vh-3.5rem)]" min-w-500px>
+          <slot />
+        </div>
+      </div>
+      <!-- 右侧边栏 -->
+      <aside>
+        <div sticky top-0 h-screen w-600px>
+          Aside Right
+        </div>
+      </aside>
+    </main>
   </div>
+</template>
+```
 
+---
+transition: slide-up
+---
+
+5、添加响应式效果并抽离组件
+
+```html
+<template>
+  <div h-full>
+    <main flex w-full mxa lg:max-w-80rem>
+      <!-- 侧边栏 -->
+      <aside hidden lg:block class="w-1/8 md:w-1/6 lg:w-1/5 xl:w-1/4 zen-hide" sm:flex justify-end xl:me-4 native:me-0 relative>
+        <div sticky top-0 w-20 xl:w-100 h-screen flex="~ col" lt-xl-items-center>
+          <div flex="~ col" overflow-y-auto justify-between h-full max-w-full overflow-x-hidden>
+            <NavTitle />
+            <NavSide />
+          </div>
+        </div>
+      </aside>
+      <div w-full min-h-screen border-base>
+        <div min-h="[calc(100vh-3.5rem)]" sm:min-h-screen min-w-500px>
+          <slot />
+        </div>
+      </div>
+      <!-- 右侧边栏 -->
+      <aside class="native:w-full">
+        <div sticky top-0 h-screen min-w-300px>
+          <ThemeSetting />
+        </div>
+      </aside>
+    </main>
+  </div>
+</template>
+```
+
+---
+transition: slide-up
+---
+
+```html
+<!-- components/NavTitle.vue -->
+<template>
+  <div flex justify-between sticky top-0 bg-white z-1 py-4 native:py-7 data-tauri-drag-region>
+    Twitter
+  </div>
+</template>
+```
+
+```html
+<!-- components/NavSide.vue -->
+<template>
+  <nav sm:px3 flex="~ col gap2" shrink text-size-base leading-normal md:text-lg h-full mt-1>
+    <template v-for="i in 40" :key="i">
+      <NavSideItem>
+        NavSideItem{{ i }}
+      </NavSideItem>
+    </template>
+  </nav>
+</template>
+```
+
+```html
+<!-- components/ThemeSetting.vue -->
+<template>
+  <div>
+    ThemeSetting
+  </div>
+</template>
+```
+
+---
+transition: slide-up
+---
+
+```html
+<!-- components/NavSideItem.vue -->
+<template>
   <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+    flex items-center gap4
+    w-fit rounded-3
+    px2 py2 mx3 sm:mxa
+    xl="ml0 mr5 px5 w-auto"
+    transition-100
+  >
+    <div hidden sm:block>
+      logo
+    </div>
+    <slot />
   </div>
-</div>
+</template>
+```
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
+---
+transition: slide-up
+---
+
+6、添加主题切换功能
+
+```ts
+// nuxt.config.ts
+...
+css: [
+  ...
+  '~/styles/theme.css'
+]
+...
+```
+
+```css
+/* styles/global.css */
+html,
+body,
+#__nuxt {
+  height: 100vh;
+  color: var(--c-primary);
+  border-color: var(--c-border);
+}
+```
+
+```css
+/* styles/theme.css */
+:root {
+  --c-border: #eee;
+  --c-primary: black;
+}
+```
+
+---
+transition: slide-up
+---
+
+```ts
+<script lang="ts" setup>
+// components/ThemeSetting.vue
+const colors = ['black', 'green', 'blue', 'red']
+const handleToggleTheme = (c: string) => {
+  ['--c-primary', '--c-border'].forEach((key) => {
+    document.documentElement.style.setProperty(key, c)
+  })
 }
 </script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
 ```
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+```html
+<template>
+  <!-- components/ThemeSetting.vue -->
+  <div>
+    <div border="~ 5
+      ThemeSetting
+    </div>
+    <div class="flex space-x-2">
+      <div v-for="(c, i) in colors" :key="i" w-6 h-6 rounded-full cursor-pointer :style="{ background: c }" @click="handleToggleTheme(c)" />
+    </div>
+  </div>
+</template>
 ```
 
-```plantuml {scale: 0.7}
-@startuml
+---
+transition: slide-up
+---
 
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
+若遇到border-color这种无法继承的属性，可配置shortcuts处理主题效果
+
+```ts
+// unocss.config.ts
+{
+  shortcuts: [
+    {
+      'bg-border': 'border-$c-border',
+    },
+  ]
 }
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
 ```
 
-</div>
+```ts
+// nuxt.config.ts
+{
+  css:[
+    ...
+    '~/styles/var.css' // 添加var.css
+  ]
+}
+```
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+```css
+/* styles/var.css */
+:root {
+  --c-border: #eee;
+}
+```
 
 ---
-src: ./pages/multiple-entries.md
-hide: false
+transition: slide-up
 ---
 
----
-layout: center
-class: text-center
----
+7、添加暗夜模式
 
-# Learn More
+```html
+<!-- ThemeSetting.vue -->
+<template>
+  <!-- ... -->
+    <div cursor-pointer @click="handleToggleDark">
+    {{ isDark ? 'light' : 'dark' }}
+    </div>
+  </div>
+</template>
+```
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+```ts
+<script>
+const isDark = ref(false)
+const handleToggleDark = () => {
+  isDark.value = !isDark.value
+  document.documentElement.className = isDark.value ? 'dark' : ''
+}
+// ...
+</script>
+```
+
+```html
+<!-- layouts/default.vue -->
+<template>
+  <div class="dark:color-white dark:bg-black" h-full>
+    <!-- ... -->
+</template>
+```

@@ -341,3 +341,57 @@ const handleToggleDark = () => {
     <!-- ... -->
 </template>
 ```
+
+---
+transition: fade-out
+---
+
+### Atom CSS的优劣
+
+CSS 是一个不强调逻辑，而更侧重表现的一门所见即所得的语言，当样式写多了，你就会发现常用样式的来来去去也就那几个，无非就是调整一下他们的排列组合。每次写这些重复的样式代码我就感觉自己是在重复造轮子，自然而然就产生了想要缩写的需求，而 `Atomic CSS` 做的一些事情很平常，无非就是把 `CSS` 属性写成一个独立的类名。
+
+好处：
+
+- 使用传统方法，每次添加新功能时，CSS 文件都会变大。而使用了Atom CSS之后，一切都是可重用的，因此很少需要编写新的 CSS，一套样式全局通用。
+- 按需生成，只会生成我们使用过的，从而减少打包体积。
+- 永远不用担心命名冲突，永远不用担心样式覆盖。
+- 不需要再为class取个什么名字而苦恼。
+
+劣处：
+
+- 由于一个元素可能有多个class，这样会增加css代码的嵌套，使得css文件变得复杂难以维护。
+- 有一定的学习成本，但是这一条我觉得并不算缺点，比如background需要记住是以bg开头，绝大部分的css类都是很符合直觉的。
+
+个人觉得，以上情况利还是大于弊的，不知道大家怎么看。
+
+---
+transition: fade-out
+---
+
+### 各大网站中Atom CSS的应用
+
+[GitHub](https://github.com/)
+
+![GitHub](/public/img/github.png)
+
+---
+transition: slide-up
+---
+
+[Twitter](https://twitter.com/)
+
+![Twitter](/public/img/twitter.png)
+
+---
+transition: fade-out
+---
+
+[FaceBook](https://www.facebook.com/)
+
+[顺便提一下，Facebook首页采用原子化CSS重构减少了80%的代码体积](https://dev.to/mikaelgramont/comment/p5c9)
+![Facebook](/public/img/facebook.png)
+---
+transition: fade-out
+---
+
+### Atom CSS的简单实现

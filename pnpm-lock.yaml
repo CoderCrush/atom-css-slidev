@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@iconify-json/pajamas': ^1.1.17
   '@slidev/cli': ^0.40.3
   '@slidev/theme-default': '*'
   '@slidev/theme-seriph': '*'
@@ -9,6 +10,9 @@ dependencies:
   '@slidev/cli': registry.npmmirror.com/@slidev/cli/0.40.3_postcss@8.4.21
   '@slidev/theme-default': registry.npmmirror.com/@slidev/theme-default/0.21.2
   '@slidev/theme-seriph': registry.npmmirror.com/@slidev/theme-seriph/0.21.3
+
+devDependencies:
+  '@iconify-json/pajamas': registry.npmmirror.com/@iconify-json/pajamas/1.1.17
 
 packages:
 
@@ -687,6 +691,14 @@ packages:
       '@iconify/types': registry.npmmirror.com/@iconify/types/2.0.0
     dev: false
 
+  registry.npmmirror.com/@iconify-json/pajamas/1.1.17:
+    resolution: {integrity: sha512-EkWo7wv50xZsEeIGwUKs8TNZI16L/k1GPoK+jdL2WdhMi5WVDYN2vQ/5LxagcX+KGWZyi/IY7//cVWbEo58GnA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/pajamas/-/pajamas-1.1.17.tgz}
+    name: '@iconify-json/pajamas'
+    version: 1.1.17
+    dependencies:
+      '@iconify/types': registry.npmmirror.com/@iconify/types/2.0.0
+    dev: true
+
   registry.npmmirror.com/@iconify-json/ph/1.1.5:
     resolution: {integrity: sha512-iLXq3nohfGge22gL2tZmQ2WHBKkKkIbGWrkuyC8arckS4PWaONyh4A+uDPtSek9QbYDvi9AE2+NxWkNZhANotA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify-json/ph/-/ph-1.1.5.tgz}
     name: '@iconify-json/ph'
@@ -699,7 +711,6 @@ packages:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz}
     name: '@iconify/types'
     version: 2.0.0
-    dev: false
 
   registry.npmmirror.com/@iconify/utils/2.1.4:
     resolution: {integrity: sha512-7vzsYIvxv5Hng0MNEtSSnyMBD/+zqnORqmKiYsSgpMBGSz1r93URgBZHPYCZ1/gpoaVstYW4/SVLGCMJBNMCLQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/utils/-/utils-2.1.4.tgz}

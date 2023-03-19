@@ -93,7 +93,7 @@ transition: slide-up
 <br>
 
 
-John Polacek 在 文章  <a href="https://css-tricks.com/lets-define-exactly-atomic-css/">Let’s Define Exactly What Atomic CSS is</a> 中写道：
+John Polacek 在 文章  <a href="https://css-tricks.com/lets-define-exactly-atomic-css/" target="_blank">Let’s Define Exactly What Atomic CSS is</a> 中写道：
 
 > Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.
 
@@ -267,7 +267,7 @@ transition: slide-up
   <div flex h-4 items-start>
     <a mr-3 class="border-none!" href="https://github.com/windicss/windicss" target="_blank"><pajamas:github w-4 h-4 class="align-revert" /></a>
     <img h-4 translate-y-4px mr-5 src="https://img.shields.io/github/stars/windicss/windicss">
-    <a href="https://windicss.org/play.html?html=DwEwlgbgfAUABHUk4GMA2BDAzlgvAIgBcBTAD0IFoBWUtOAMwHcBGABlbgwDswBbDEhQBGAewCuXFMU49%2BglOK6UwXeirAkZfAcQogxAJwFgRXCqwB0AZixwAFiIjEDALm7bBWAA4r8sBAiA%2BcqACtqAaMpwAMIAylHwiAD04NAwwImQUEA&css=AIawpgngZgTghgWzAZwAQCMD2BXAdgYzFQG8AoVVABgFIAaVARkppPItQBd5dkpMYEALk7dkAGzgcwATQAUAWgBMAVmoBKANxsKcXAEsEkvZlzyOBvbgDm8qHnzmTw-NnR7889GABeesDFlKADoADnpKegZIzTYAXzZlFjJ2EV1efiFUngkpOUoYlN0DIxMzC2tbe0dcZ1d3Tx8-AIiqcKDFaK0KeNigA">play</a>
+    <a href="https://windicss.org/play.html?html=DwEwlgbgfAUABHUk4GMA2BDAzlgvAIgBcBTAD0IFoBWUtOAMwHcBGABlbgwDswBbDEhQBGAewCuXFMU49%2BglOK6UwXeirAkZfAcQogxAJwFgRXCqwB0AZixwAFiIjEDALm7bBWAA4r8sBAiA%2BcqACtqAaMpwAMIAylHwiAD04NAwwImQUEA&css=AIawpgngZgTghgWzAZwAQCMD2BXAdgYzFQG8AoVVABgFIAaVARkppPItQBd5dkpMYEALk7dkAGzgcwATQAUAWgBMAVmoBKANxsKcXAEsEkvZlzyOBvbgDm8qHnzmTw-NnR7889GABeesDFlKADoADnpKegZIzTYAXzZlFjJ2EV1efiFUngkpOUoYlN0DIxMzC2tbe0dcZ1d3Tx8-AIiqcKDFaK0KeNigA" target="_blank">play</a>
   </div>
 </div>
 <br>

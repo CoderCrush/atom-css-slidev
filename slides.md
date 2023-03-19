@@ -341,14 +341,11 @@ transition: fade-out
 | ----------- | ------------------------- | ----------------------| -------------------------|
 | GitHub Stars | <img h-4 translate-y-4px src="https://img.shields.io/github/stars/tailwindlabs/tailwindcss"> | <img h-4 translate-y-4px src="https://img.shields.io/github/stars/windicss/windicss"> | <img h-4 translate-y-4px src="https://img.shields.io/github/stars/unocss/unocss"> |
 | 第一个版本发布时间 | 2017 年 11 月 | 2020 年 2 月 | 2021 年 3 月 |
-| CSS输出大小 | 大                        | 较小                  | 更小                     |
 | 自定义程度   | 低                        | 中等                  | 高                        |
 | JIT编译     | 从 3.0 版本开始支持         | 从 2.0 版本开始支持    | 支持                     |
-| 文件大小    | 大                        | 较小                  | 更小                     |
 | 文档        | 详细                      | 较详细                  | 简单                     |
 | 社区        | 社区庞大                 | 社区比较小              | 社区比较小              |
 | 可扩展性    | 中等                      | 高                    | 高                       |
-
 
 ---
 transition: slide-up

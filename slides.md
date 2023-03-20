@@ -207,13 +207,20 @@ transition: slide-up
 ![Twitter](/img/twitter.png)
 
 ---
-transition: fade-out
+transition: slide-up
 ---
 
 [FaceBook](https://www.facebook.com/)
 
-[顺便提一下，Facebook首页采用原子化CSS重构减少了80%的代码体积](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)
 ![Facebook](/img/facebook.png)
+
+---
+transition: fade-out
+---
+
+[顺便提一下，Facebook首页采用原子化CSS重构减少了80%的代码体积](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)
+
+![Facebook](/img/facebook-css.png)
 
 ---
 transition: slide-up
@@ -339,13 +346,14 @@ transition: fade-out
 
 | 功能/特点   | Tailwind CSS               | Windi CSS              | Unocss                    |
 | ----------- | ------------------------- | ----------------------| -------------------------|
-| GitHub Stars | <img h-4 translate-y-4px src="https://img.shields.io/github/stars/tailwindlabs/tailwindcss"> | <img h-4 translate-y-4px src="https://img.shields.io/github/stars/windicss/windicss"> | <img h-4 translate-y-4px src="https://img.shields.io/github/stars/unocss/unocss"> |
+| GitHub Stars | <img h-4 src="https://img.shields.io/github/stars/tailwindlabs/tailwindcss"> | <img h-4 src="https://img.shields.io/github/stars/windicss/windicss"> | <img h-4 src="https://img.shields.io/github/stars/unocss/unocss"> |
+| NPM Downloads | <img h-4 mb-1 src="https://badgen.net/npm/dm/tailwindcss"> <img h-4 src="https://badgen.net/npm/dw/tailwindcss"> | <img h-4 mb-1 src="https://badgen.net/npm/dm/windicss"> <img h-4 src="https://badgen.net/npm/dw/windicss"> | <img h-4 mb-1 src="https://badgen.net/npm/dm/unocss"> <img h-4 src="https://badgen.net/npm/dw/unocss"> |
+| Code Size | <img h-4 src="https://img.shields.io/github/languages/code-size/tailwindlabs/tailwindcss"> | <img h-4 src="https://img.shields.io/github/languages/code-size/windicss/windicss"> | <img h-4 src="https://img.shields.io/github/languages/code-size/unocss/unocss"> |
+| Dependents Repo | <img h-4 src="https://badgen.net/github/dependents-repo/tailwindlabs/tailwindcss"> | <img h-4 src="https://badgen.net/github/dependents-repo/windicss/windicss"> | <img h-4 src="https://badgen.net/github/dependents-repo/unocss/unocss"> |
+| Package health | <img h-4 src="https://snyk.io/advisor/npm-package/tailwindcss/badge.svg"> | <img h-4 src="https://snyk.io/advisor/npm-package/windicss/badge.svg"> | <img h-4 src="https://snyk.io/advisor/npm-package/unocss/badge.svg"> |
 | 第一个版本发布时间 | 2017 年 11 月 | 2020 年 2 月 | 2021 年 3 月 |
-| 自定义程度   | 低                        | 中等                  | 高                        |
 | JIT编译     | 从 3.0 版本开始支持         | 从 2.0 版本开始支持    | 支持                     |
-| 文档        | 详细                      | 较详细                  | 简单                     |
-| 社区        | 社区庞大                 | 社区比较小              | 社区比较小              |
-| 可扩展性    | 中等                      | 高                    | 高                       |
+| 文档/社区        | 详细/社区庞大                       | 较详细/社区较小                  | 简单/社区比较小                     |
 
 ---
 transition: slide-up
@@ -640,7 +648,7 @@ transition: slide-up
 ```
 
 ---
-transition: slide-up
+transition: fade-out
 ---
 
 7、添加暗夜模式
@@ -670,13 +678,13 @@ const handleToggleDark = () => {
 ```html
 <!-- layouts/default.vue -->
 <template>
-  <div class="dark:color-white dark:bg-black" h-full>
+  <div class="dark:text-gray-200 dark:bg-[#050505]" h-full>
     <!-- ... -->
 </template>
 ```
 
 ---
-transition: fade-out
+transition: slide-up
 ---
 
 # 四、使用原子化CSS的利与弊
@@ -695,6 +703,8 @@ transition: fade-out
 - 由于一个元素可能有多个class，这样会增加css代码的嵌套，使得css文件变得复杂难以维护。
 - 有一定的学习成本，但是这一条我觉得并不算缺点，绝大部分的css类都是很符合直觉的，比如background需要记住是以bg开头。
 
+---
+transition: fade-out
 ---
 
 关于维护方面：
@@ -716,7 +726,7 @@ transition: fade-out
 4. 遵循规范：制定样式书写规范，例如 BEM（块、元素、修饰符）或 [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) 等，可以帮助你更好地组织样式并提高代码的可维护性。
 
 ---
-transition: fade-out
+transition: slide-up
 ---
 
 # 五、原子化CSS的实现

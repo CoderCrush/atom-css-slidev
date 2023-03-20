@@ -712,8 +712,8 @@ transition: fade-out
   ```
 
 2. 利用注释：在 HTML 或 CSS 中添加注释来解释样式的作用，可以让代码更加易读和易于维护。
-3. 使用工具：一些工具可以帮助你更好地管理原子化 CSS，例如可以使用 PostCSS 插件来生成有意义的类名，也可以使用类似于 Tailwind CSS 的类名缩写系统来减少样式的数量。
-4. 遵循规范：制定样式书写规范，例如 BEM（块、元素、修饰符）或 Atomic Design 等，可以帮助你更好地组织样式并提高代码的可维护性。
+3. 使用工具：一些工具可以帮助你更好地管理原子化 CSS，例如可以使用 PostCSS 插件来生成有意义的类名，如：`postcss-bem`，它可以根据 BEM 命名约定自动生成类名。也可以使用类似于 Tailwind CSS 的类名缩写系统来减少样式的数量。
+4. 遵循规范：制定样式书写规范，例如 BEM（块、元素、修饰符）或 [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) 等，可以帮助你更好地组织样式并提高代码的可维护性。
 
 ---
 transition: fade-out

@@ -220,7 +220,7 @@ transition: fade-out
 
 [顺便提一下，Facebook首页采用原子化CSS重构减少了80%的代码体积](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)
 
-![Facebook](/img/facebook-css.png)
+<img src="/img/facebook-css.png" width="800">
 
 ---
 transition: slide-up
@@ -410,14 +410,13 @@ export default defineConfig({
     presetAttributify(), // 支持属性写法
   ],
   transformers: [ // 预处理
-    transformerDirectives(), // 可以把css写成js文件并且可以直接获取到css
-    transformerVariantGroup(),
+    transformerDirectives(), // 转换器的指令 @apply 和 theme()
   ],
 })
 
 ```
 
-添加`Tailwind CSS IntelliSense`、`unocss`vscode插件
+添加`unocss`vscode插件
 
 ---
 transition: slide-up
@@ -426,7 +425,7 @@ transition: slide-up
 4、初始化页面布局
 
 ```html
-// layouts/default.vue
+<!-- layouts/default.vue -->
 <template>
   <div h-full>
     <main flex w-full mxa max-w-80rem>
@@ -459,25 +458,26 @@ transition: slide-up
 5、添加响应式效果并抽离组件
 
 ```html
+<!-- layouts/default.vue -->
 <template>
   <div h-full>
     <main flex w-full mxa lg:max-w-80rem>
       <!-- 侧边栏 -->
-      <aside hidden lg:block class="w-1/8 md:w-1/6 lg:w-1/5 xl:w-1/4 zen-hide" sm:flex justify-end xl:me-4 native:me-0 relative>
-        <div sticky top-0 w-20 xl:w-100 h-screen flex="~ col" lt-xl-items-center>
+      <aside hidden lg:flex justify-end xl:me-4 relative class="w-1/8 md:w-1/6 lg:w-1/5 xl:w-1/4">
+        <div sticky top-0 w-20 xl:w-80 h-screen flex="~ col" xl-items-center>
           <div flex="~ col" overflow-y-auto justify-between h-full max-w-full overflow-x-hidden>
             <NavTitle />
             <NavSide />
           </div>
         </div>
       </aside>
-      <div w-full min-h-screen border-base>
+      <div flex-1 min-h-screen>
         <div min-h="[calc(100vh-3.5rem)]" sm:min-h-screen min-w-500px>
           <slot />
         </div>
       </div>
       <!-- 右侧边栏 -->
-      <aside class="native:w-full">
+      <aside>
         <div sticky top-0 h-screen min-w-300px>
           <ThemeSetting />
         </div>
@@ -494,11 +494,10 @@ transition: slide-up
 ```html
 <!-- components/NavTitle.vue -->
 <template>
-  <div flex="~ justify-between" sticky top-0 bg-white dark:bg-black z-1 py-4>
+  <div flex="~ justify-between" sticky top-0 z-1 py-4>
     Twitter
   </div>
 </template>
-
 ```
 
 ```html
@@ -535,7 +534,6 @@ transition: slide-up
     w-fit rounded-3
     px2 py2 mx3 sm:mxa
     xl="ml0 mr5 px5 w-auto"
-    transition-100
   >
     <div hidden sm:block>
       logo
@@ -555,7 +553,7 @@ transition: slide-up
 // nuxt.config.ts
 ...
 css: [
-  ...
+  '~/styles/global.css',
   '~/styles/theme.css'
 ]
 ...
@@ -617,16 +615,16 @@ const handleToggleTheme = (c: string) => {
 transition: slide-up
 ---
 
-若遇到border-color这种无法继承的属性，可配置shortcuts处理主题效果
+也可通过shortcuts单独配置主题效果
 
 ```ts
 // unocss.config.ts
 {
   shortcuts: [
     {
-      'bg-border': 'border-$c-border',
+      'bg-color': 'bg-$c-bg-color',
     },
-  ]
+  ],
 }
 ```
 

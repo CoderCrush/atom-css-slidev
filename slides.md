@@ -351,9 +351,29 @@ transition: fade-out
 | Code Size | <img h-4 src="https://img.shields.io/github/languages/code-size/tailwindlabs/tailwindcss"> | <img h-4 src="https://img.shields.io/github/languages/code-size/windicss/windicss"> | <img h-4 src="https://img.shields.io/github/languages/code-size/unocss/unocss"> |
 | Dependents Repo | <img h-4 src="https://badgen.net/github/dependents-repo/tailwindlabs/tailwindcss"> | <img h-4 src="https://badgen.net/github/dependents-repo/windicss/windicss"> | <img h-4 src="https://badgen.net/github/dependents-repo/unocss/unocss"> |
 | Package health | <img h-4 src="https://snyk.io/advisor/npm-package/tailwindcss/badge.svg"> | <img h-4 src="https://snyk.io/advisor/npm-package/windicss/badge.svg"> | <img h-4 src="https://snyk.io/advisor/npm-package/unocss/badge.svg"> |
-| 第一个版本发布时间 | 2017 年 11 月 | 2020 年 2 月 | 2021 年 3 月 |
+| 第一个版本/最后一次提交 | <span text-sm>2017 年 11 月</span> <img h-4 src="https://img.shields.io/github/last-commit/tailwindlabs/tailwindcss"> | <span text-sm>2020 年 2 月</span> <img h-4 src="https://img.shields.io/github/last-commit/windicss/windicss"> | <span text-sm>2021 年 3 月</span> <img h-4 src="https://img.shields.io/github/last-commit/unocss/unocss"> |
 | JIT编译     | 从 3.0 版本开始支持         | 从 2.0 版本开始支持    | 支持                     |
 | 文档/社区        | 详细/社区庞大                       | 较详细/社区较小                  | 简单/社区比较小                     |
+
+<div v-click-hide>
+  <img
+    v-click
+    class="absolute bottom-58 -left-7 w-80 opacity-50"
+    src="https://sli.dev/assets/arrow-bottom-left.svg"
+  />
+  <p v-after class="absolute bottom-93 left-50 opacity-30 transform -rotate-10">Here!</p>
+  <p v-after class="absolute bottom-81 left-55 opacity-30 transform">表示该库的受依赖程度~</p>
+</div>
+
+<div v-click-hide>
+  <img
+    v-click
+    class="absolute bottom-45 -left-7 w-80 opacity-50"
+    src="https://sli.dev/assets/arrow-bottom-left.svg"
+  />
+  <p v-after class="absolute bottom-80 left-50 opacity-30 transform -rotate-10">Here!</p>
+  <p v-after class="absolute bottom-68 left-55 opacity-30 transform">Snyk Advisor 对于该 npm 包的安全性评分，安全得分/受欢迎度得分</p>
+</div>
 
 ---
 transition: slide-up
